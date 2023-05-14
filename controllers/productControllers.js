@@ -25,21 +25,22 @@ exports.getOneProduct = async(req, res)=>{
 
 exports.postProduct = async(req,res)=>{
     try {
-          let Id= 0
-          let lastProduct = await Products.findOne().sort({Id: -1}); // Get the last ID in the database
+        // let id= 0
+        //   let lastProduct = await Products.findOne().sort({_id: -1}); // Get the last ID in the database
         
-          if(lastProduct.Id){
-            Id=lastProduct.Id+1
-          } else{                                           // If there are no products in the database, start with ID 1
-            Id=1
-          }                                             
-        
+        //   if(lastProduct){
+        //     id=lastProduct._id+10
+        //   } else{                                                   // If there are no products in the database, start with ID 1
+        //     id= 1
+        //   }                                             
+        // console.log(id)
         const query= req.body
-        if(!query.Name || !query.Stock || !query.Categorie){
+        if(!query.Name || !query.Stock || !query.Categorie || !query.Price){
             return res.status(400).send({msg:"please enter the missing fields"})
         }else{
-            const newProduct= new Products({...query,Id});
+            const newProduct= new Products(query);
             await newProduct.save()
+        
            return res.status(200).send({msg:"adding product successfully", response:newProduct})
         }
         

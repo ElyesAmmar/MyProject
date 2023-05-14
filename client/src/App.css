@@ -1,0 +1,34 @@
+.barDash{
+    background-color: rgb(231, 231, 231);
+    display: block;
+    height: 250px;
+}
+.barDash h1{
+    font-size: 70px;
+    padding-top: 30px;
+    padding-left: 30px;
+}
+
+.cards{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 1000px;
+    margin: 30px auto;
+}
+
+.navbar-dashboard{
+    width: 600px;
+    height: 50px;
+    margin: 94px auto 0;
+    
+}
+.logform{
+    width: 500px;
+    /* margin : 150px auto 50px; */
+}
+.home{
+    background-color: antiquewhite;
+    width: 1500px;
+    height: 500px;
+}
